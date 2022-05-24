@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyF1</string>
+    <string name="txtEmailAdressLogin">Email</string>
+    <string name="txtPasswordLogin">Password</string>
+    <string name="btnLogin">Iniciar Sesión</string>
+    <string name="txtCrearCuenta">Crear Cuenta</string>
+</resources>
