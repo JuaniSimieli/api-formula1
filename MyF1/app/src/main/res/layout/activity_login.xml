@@ -12,6 +12,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -20,37 +21,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/txtEmailAdressLogin"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp"
-            android:autofillHints="" />
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/txtPasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/txtPasswordLogin"
             android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:autofillHints="" />
+            android:minHeight="48dp" />
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_rectangle"
             android:layout_marginTop="25dp"
             android:text="@string/btnLogin" />
 
         <TextView
             android:id="@+id/txtCrearCuenta"
+            style="@style/CenterText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="@string/txtCrearCuenta"
             android:clickable="true"
-            android:focusable="true" />
+            android:focusable="true"
+            android:text="@string/txtCrearCuenta" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

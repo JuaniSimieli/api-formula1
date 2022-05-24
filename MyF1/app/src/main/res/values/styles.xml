@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CenterText" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textColor">#FF1801</item>
+        <item name="android:gravity">center</item>
+        <item name="android:shadowColor">#B4AAA8</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+    <style name="StyleButton">
+        <item name="background">@drawable/rounded_rectangle</item>
+    </style>
+</resources>
