@@ -10,4 +10,11 @@
     <style name="StyleButton">
         <item name="background">@drawable/rounded_rectangle</item>
     </style>
+
+    <style name="GlobalAppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="backgroundColor">@color/f1_black_color</item>
+
+    </style>
+
 </resources>

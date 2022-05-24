@@ -4,4 +4,6 @@
     <string name="txtPasswordLogin">Password</string>
     <string name="btnLogin">Iniciar Sesión</string>
     <string name="txtCrearCuenta">Crear Cuenta</string>
+    <string name="txtNameRegister">Nombre</string>
+    <string name="btnRegister">Registrarse</string>
 </resources>
