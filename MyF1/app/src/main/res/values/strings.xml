@@ -6,4 +6,6 @@
     <string name="txtCrearCuenta">Crear Cuenta</string>
     <string name="txtNameRegister">Nombre</string>
     <string name="btnRegister">Registrarse</string>
+    <string name="txtPasswordRepeatRegister">Repetir Password</string>
+    <string name="txtCancelText">Cancelar</string>
 </resources>
