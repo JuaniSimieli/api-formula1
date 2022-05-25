@@ -8,4 +8,41 @@
     <string name="btnRegister">Registrarse</string>
     <string name="txtPasswordRepeatRegister">Repetir Password</string>
     <string name="txtCancelText">Cancelar</string>
+    <!-- Array de conductores -->
+    <string-array name="drivers_array">
+        <item>Alexander Albon</item>
+        <item>Carlos Sainz</item>
+        <item>Charles Leclerc</item>
+        <item>Daniel Ricciardo</item>
+        <item>Esteban Ocon</item>
+        <item>Fernando Alonso</item>
+        <item>George Russell</item>
+        <item>Guanyu Zhou</item>
+        <item>Kevin Magnussen</item>
+        <item>Lance Stroll</item>
+        <item>Lando Norris</item>
+        <item>Lewis Hamilton</item>
+        <item>Max Verstappen</item>
+        <item>Mick Schumacher</item>
+        <item>Nicholas Latifi</item>
+        <item>Nico Hülkenberg</item>
+        <item>Pierre Gasly</item>
+        <item>Sebastian Vettel</item>
+        <item>Sergio Pérez</item>
+        <item>Valtteri Bottas</item>
+        <item>Yuki Tsunoda</item>
+    </string-array>
+    <!-- Array de equipos-->
+    <string-array name="teams_array">
+        <item>Alfa Romero</item>
+        <item>AplhaTauri</item>
+        <item>Alpine F1 Team</item>
+        <item>Aston Martin</item>
+        <item>Ferrari</item>
+        <item>Haas F1 Team</item>
+        <item>McLaren</item>
+        <item>Mercedes</item>
+        <item>Red Bull</item>
+        <item>Williams</item>
+    </string-array>
 </resources>
