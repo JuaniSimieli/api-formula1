@@ -38,6 +38,16 @@
             android:inputType="textPassword"
             android:minHeight="48dp" />
 
+        <TextView
+            android:id="@+id/txtForgottenPasswd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:text="@string/txtForgottenPasswd"
+            android:focusable="true" />
+
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
@@ -55,5 +65,6 @@
             android:clickable="true"
             android:focusable="true"
             android:text="@string/txtCrearCuenta" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
