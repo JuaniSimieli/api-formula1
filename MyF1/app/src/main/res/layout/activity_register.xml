@@ -22,7 +22,9 @@
             android:layout_marginTop="25dp"
             android:ems="10"
             android:hint="@string/txtNameRegister"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/txtEmailAdressRegister"
@@ -31,7 +33,9 @@
             android:layout_marginTop="25dp"
             android:ems="10"
             android:hint="@string/txtEmailAdressLogin"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/txtPasswdRegister"
@@ -40,7 +44,9 @@
             android:layout_marginTop="25dp"
             android:ems="10"
             android:hint="@string/txtPasswordLogin"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/txtPasswdRepeatRegister"
@@ -49,27 +55,33 @@
             android:layout_marginTop="25dp"
             android:ems="10"
             android:hint="@string/txtPasswordRepeatRegister"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <Spinner
             android:id="@+id/spinnerFavDriverRegister"
-            android:layout_marginTop="25dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:minHeight="48dp" />
 
         <Spinner
             android:id="@+id/spinnerFavTeamRegister"
-            android:layout_marginTop="25dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:minHeight="48dp" />
 
         <Button
             android:id="@+id/btnFinishRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_rectangle"
             android:layout_marginTop="40dp"
-            android:text="@string/btnRegister" />
+            android:background="@drawable/rounded_rectangle"
+            android:text="@string/btnRegister"
+            android:textColor="#000000" />
+
         <TextView
             android:id="@+id/txtCancelRegister"
             style="@style/CenterText"
@@ -78,6 +90,8 @@
             android:layout_marginTop="40dp"
             android:clickable="true"
             android:focusable="true"
-            android:text="@string/txtCancelText" />
+            android:minHeight="48dp"
+            android:text="@string/txtCancelText"
+            android:textColor="#FF6E40" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
