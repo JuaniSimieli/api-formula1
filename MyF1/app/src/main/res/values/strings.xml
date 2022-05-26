@@ -1,15 +1,17 @@
 <resources>
     <string name="app_name">MyF1</string>
     <string name="txtEmailAdressLogin">Email</string>
-    <string name="txtPasswordLogin">Password</string>
+    <string name="txtPasswordLogin">Contraseña</string>
     <string name="btnLogin">Iniciar Sesión</string>
     <string name="txtCrearCuenta">Crear Cuenta</string>
     <string name="txtNameRegister">Nombre</string>
     <string name="btnRegister">Registrarse</string>
-    <string name="txtPasswordRepeatRegister">Repetir Password</string>
-    <string name="txtCancelText">Cancelar</string>
+    <string name="txtPasswordRepeatRegister">Repetir Contraseña</string>
+    <string name="txtCancelText">¿Ya tienes una cuenta?</string> <!--TODO: poner al lado un iniciar sesion que sea un intent al login -->
+    <string name="txtForgottenPasswd">¿Olvidó su contraseña?</string>
     <!-- Array de conductores -->
     <string-array name="drivers_array">
+        <item>Seleccione un conductor:</item>
         <item>Alexander Albon</item>
         <item>Carlos Sainz</item>
         <item>Charles Leclerc</item>
@@ -34,8 +36,9 @@
     </string-array>
     <!-- Array de equipos-->
     <string-array name="teams_array">
+        <item>Seleccione una escudería</item>
         <item>Alfa Romero</item>
-        <item>AplhaTauri</item>
+        <item>AlphaTauri</item>
         <item>Alpine F1 Team</item>
         <item>Aston Martin</item>
         <item>Ferrari</item>
