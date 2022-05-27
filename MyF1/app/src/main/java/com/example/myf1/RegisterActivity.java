@@ -72,87 +72,66 @@ public class RegisterActivity extends AppCompatActivity {
                 String driver = adapterView.getItemAtPosition(i).toString();
                 switch(driver) {
                     case "Alexander Albon":
-                        Toast.makeText(adapterView.getContext(),"albon",Toast.LENGTH_SHORT).show();
                         favDriver="albon";
                         break;
                     case "Carlos Sainz":
-                        Toast.makeText(adapterView.getContext(),"sainz",Toast.LENGTH_SHORT).show();
                         favDriver="sainz";
                         break;
                     case "Charles Leclerc":
-                        Toast.makeText(adapterView.getContext(),"leclerc",Toast.LENGTH_SHORT).show();
                         favDriver="leclerc";
                         break;
                     case "Daniel Ricciardo":
-                        Toast.makeText(adapterView.getContext(),"ricciardio",Toast.LENGTH_SHORT).show();
                         favDriver="ricciardio";
                         break;
                     case "Esteban Ocon":
-                        Toast.makeText(adapterView.getContext(),"ocon",Toast.LENGTH_SHORT).show();
                         favDriver="ocon";
                         break;
                     case "Fernando Alonso":
-                        Toast.makeText(adapterView.getContext(),"alonso",Toast.LENGTH_SHORT).show();
                         favDriver="alonso";
                         break;
                     case "George Russell":
-                        Toast.makeText(adapterView.getContext(),"russell",Toast.LENGTH_SHORT).show();
                         favDriver="russell";
                         break;
                     case "Guanyu Zhou":
-                        Toast.makeText(adapterView.getContext(),"zhou",Toast.LENGTH_SHORT).show();
                         favDriver="zhou";
                         break;
                     case "Kevin Magnussen":
-                        Toast.makeText(adapterView.getContext(),"kevin_magnussen",Toast.LENGTH_SHORT).show();
                         favDriver="kevin_magnussen";
                         break;
                     case "Lance Stroll":
-                        Toast.makeText(adapterView.getContext(),"stroll",Toast.LENGTH_SHORT).show();
                         favDriver="stroll";
                         break;
                     case "Lando Norris":
-                        Toast.makeText(adapterView.getContext(),"norris",Toast.LENGTH_SHORT).show();
                         favDriver="norris";
                         break;
                     case "Lewis Hamilton":
-                        Toast.makeText(adapterView.getContext(),"hamilton",Toast.LENGTH_SHORT).show();
                         favDriver="hamilton";
                         break;
                     case "Max Verstappen":
-                        Toast.makeText(adapterView.getContext(),"max_verstappen",Toast.LENGTH_SHORT).show();
                         favDriver="max_verstappen";
                         break;
                     case "Mick Schumacher":
-                        Toast.makeText(adapterView.getContext(),"mick_schumacher",Toast.LENGTH_SHORT).show();
                         favDriver="mick_schumacher";
                         break;
                     case "Nicholas Latifi":
-                        Toast.makeText(adapterView.getContext(),"latifi",Toast.LENGTH_SHORT).show();
                         favDriver="latifi";
                         break;
                     case "Nico Hülkenberg":
-                        Toast.makeText(adapterView.getContext(),"hulkenberg",Toast.LENGTH_SHORT).show();
                         favDriver="hulkenberg";
                         break;
                     case "Pierre Gasly":
-                        Toast.makeText(adapterView.getContext(),"gasly",Toast.LENGTH_SHORT).show();
                         favDriver="gasly";
                         break;
                     case "Sebastian Vettel":
-                        Toast.makeText(adapterView.getContext(),"vettel",Toast.LENGTH_SHORT).show();
                         favDriver="vettel";
                         break;
                     case "Sergio Pérez":
-                        Toast.makeText(adapterView.getContext(),"perez",Toast.LENGTH_SHORT).show();
                         favDriver="perez";
                         break;
                     case "Valtteri Bottas":
-                        Toast.makeText(adapterView.getContext(),"bottas",Toast.LENGTH_SHORT).show();
                         favDriver="bottas";
                         break;
                     case "Yuki Tsunoda":
-                        Toast.makeText(adapterView.getContext(),"tsunoda",Toast.LENGTH_SHORT).show();
                         favDriver="tsunoda";
                         break;
                 }
@@ -169,43 +148,33 @@ public class RegisterActivity extends AppCompatActivity {
                 String team = adapterView.getItemAtPosition(i).toString();
                 switch (team) {
                     case "Alfa Romero":
-                        Toast.makeText(adapterView.getContext(), "alfa", Toast.LENGTH_SHORT).show();
                         favTeam="alfa";
                         break;
                     case "AlphaTauri":
-                        Toast.makeText(adapterView.getContext(),"aphatauri", Toast.LENGTH_SHORT).show();
                         favTeam="aphatauri";
                         break;
                     case"Alpine F1 Team":
-                        Toast.makeText(adapterView.getContext(), "alpine", Toast.LENGTH_SHORT).show();
                         favTeam="alpine";
                         break;
                     case "Aston Martin":
-                        Toast.makeText(adapterView.getContext(), "aston_martin", Toast.LENGTH_SHORT).show();
                         favTeam="aston_martin";
                         break;
                     case "Ferrari":
-                        Toast.makeText(adapterView.getContext(), "ferrari", Toast.LENGTH_SHORT).show();
                         favTeam="ferrari";
                         break;
                     case "Haas F1 Team":
-                        Toast.makeText(adapterView.getContext(), "haas", Toast.LENGTH_SHORT).show();
                         favTeam="haas";
                         break;
                     case "McLaren":
-                        Toast.makeText(adapterView.getContext(), "mclaren", Toast.LENGTH_SHORT).show();
                         favTeam="mclaren";
                         break;
                     case "Mercedes":
-                        Toast.makeText(adapterView.getContext(), "mercedes", Toast.LENGTH_SHORT).show();
                         favTeam="mercedes";
                         break;
                     case "Red Bull":
-                        Toast.makeText(adapterView.getContext(), "red_bull", Toast.LENGTH_SHORT).show();
                         favTeam="red_bull";
                         break;
                     case "Williams":
-                        Toast.makeText(adapterView.getContext(), "williams", Toast.LENGTH_SHORT).show();
                         favTeam="williams";
                         break;
                 }
