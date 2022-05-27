@@ -42,11 +42,11 @@
             android:id="@+id/txtForgottenPasswd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="end"
             android:layout_marginTop="20dp"
             android:clickable="true"
-            android:text="@string/txtForgottenPasswd"
-            android:focusable="true" />
+            android:focusable="true"
+            android:gravity="end"
+            android:text="@string/txtForgottenPasswd" />
 
         <Button
             android:id="@+id/btnLogin"
