@@ -203,8 +203,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     /*Función intent para cancelar registro*/
     public void openLoginActivity(){
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        Intent goToLogin = new Intent(this, LoginActivity.class);
+        startActivity(goToLogin);
     }
 
     public void createUser(){
