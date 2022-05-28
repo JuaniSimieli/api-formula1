@@ -16,11 +16,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/profile_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
             android:layout_marginTop="25dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@drawable/profile_picture"
+            android:clickable="true"
+            android:focusable="true" />
 
         <EditText
             android:id="@+id/txtNameProfile"
@@ -41,13 +44,13 @@
             android:inputType="textEmailAddress" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinnerDriverProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"/>
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/spinnerTeamProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"/>
