@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageDriverNat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageDriverTeam"
+        android:layout_width="10dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageDriverNat"
+        app:layout_constraintStart_toEndOf="@+id/imageDriverNat"
+        app:layout_constraintTop_toTopOf="@+id/imageDriverNat" />
+
+    <TextView
+        android:id="@+id/textDriverName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Nombre Apellido"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageDriverTeam"
+        app:layout_constraintTop_toTopOf="@+id/imageDriverNat" />
+
+    <TextView
+        android:id="@+id/textDriverPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:paddingBottom="5dp"
+        android:text="Puntos: #"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/imageDriverTeam"
+        app:layout_constraintTop_toBottomOf="@+id/textDriverName" />
+
+    <TextView
+        android:id="@+id/textDriverPos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:text="#"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageDriverNat"
+        app:layout_constraintEnd_toEndOf="@+id/imageDriverNat"
+        app:layout_constraintTop_toTopOf="@+id/imageDriverNat" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
