@@ -70,7 +70,9 @@ public class ProfileActivity extends AppCompatActivity {
         myAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         user = myAuth.getCurrentUser();
+        storageReference = FirebaseStorage.getInstance().getReference();
         userID = Objects.requireNonNull(myAuth.getCurrentUser()).getUid();
+
         DocumentReference documentReference = db.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -78,7 +80,6 @@ public class ProfileActivity extends AppCompatActivity {
                 txtProfileNameDefault.setText(value.getString("Nombre"));
             }
         });
-        storageReference = FirebaseStorage.getInstance().getReference();
         StorageReference profileReference = storageReference.child("users/"+userID+"/profile.jpg");
         profileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -93,7 +94,7 @@ public class ProfileActivity extends AppCompatActivity {
                 // open gallery
                 Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(openGallery,1000);
-            }
+            }   
         });
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -148,7 +149,6 @@ public class ProfileActivity extends AppCompatActivity {
         if(requestCode == 1000){
             if(resultCode == Activity.RESULT_OK){
                 Uri imageUri = data.getData();
-                //profileImage.setImageURI(imageUri);
                 uploadImageFirebase(imageUri);
             }
         }
