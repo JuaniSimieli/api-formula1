@@ -33,6 +33,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.Objects;
+
 
 public class ProfileActivity extends AppCompatActivity {
     private static final int GALLERY_INTENT_CODE=1023;
@@ -68,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity {
         myAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         user = myAuth.getCurrentUser();
-        userID = myAuth.getCurrentUser().getUid();
+        userID = Objects.requireNonNull(myAuth.getCurrentUser()).getUid();
         DocumentReference documentReference = db.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
