@@ -81,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
                         favDriver="leclerc";
                         break;
                     case "Daniel Ricciardo":
-                        favDriver="ricciardio";
+                        favDriver="ricciardo";
                         break;
                     case "Esteban Ocon":
                         favDriver="ocon";
@@ -151,7 +151,7 @@ public class RegisterActivity extends AppCompatActivity {
                         favTeam="alfa";
                         break;
                     case "AlphaTauri":
-                        favTeam="aphatauri";
+                        favTeam="alphatauri";
                         break;
                     case"Alpine F1 Team":
                         favTeam="alpine";

@@ -1,26 +1,17 @@
 
-# API Formula 1 
+# MyF1
 
-## Pantalla 1
-[Info Carreras](http://ergast.com/api/f1/current.json) \
-Pantalla hija: carrera especifica round: 
-*MRData.RaceTable.Races.round*
-/current/($NroCarrera).json
+## Features
+- [ ] Login mediante Firebase
+- [ ] Perfil personalizable agregando foto
+- [ ] Resumen de la temporada 2022 del piloto y equipo favorito a seleccion del usuario
+- [ ] Tabla de campeonato de pilotos y equipos de la temporada 2022
+- [ ] Capacidad para agregar al calendario las carreras futuras
+- [ ] Resultados de las carreras finalizadas de la temporada 2022
+- [ ] Detalle de cada piloto de la temporada 2022
+- [ ] Detalle de cada equipo de la temporada 2022
+- [ ] Widgets para la pantalla de inicio con detalles de piloto y equipo favorito
 
-
-## Pantalla 2 
-[Driver Standings](http://ergast.com/api/f1/current/driverStandings.json) \
-Pantalla hija: Detalles piloto
-Piloto id esta en: 
-*MRData.StandingsTable.StandingList.DriverStandings.Driver.driverId*
-/drivers/($driverID).json
-	
-## Pantalla 3 
-[Constructor Standings](http://ergast.com/api/f1/current/constructorStandings.json) \
-Pantalla Hija: detalles constructores
-constructorID esta en: 
-*MRData.StandingsTable.StandingList.ConstructorStandings.Constructor.constructorId*
-/constructors/($constructorId).json
-
-<sub>Base URL:</sub>
-<sub>ergast.com/api/f1</sub>
+<sub>Datos obtenidos de [Ergast](http://ergast.com/mrd)</sub>
+<sub>Trabajo Final para Aplicaciones Moviles</sub>
+<sub>UTN - FRLP</sub>
