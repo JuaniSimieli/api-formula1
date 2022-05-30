@@ -9,6 +9,12 @@
     <string name="txtPasswordRepeatRegister">Repetir Contraseña</string>
     <string name="txtCancelText">¿Ya tienes una cuenta?</string> <!--TODO: poner al lado un iniciar sesion que sea un intent al login -->
     <string name="txtForgottenPasswd">¿Olvidó su contraseña?</string>
+    <string name="txtNameDefault">NAME</string>
+    <string name="txtNameProfile">Ingresa el nuevo nombre</string>
+    <string name="txtEmailProfile">Ingresa el nuevo email</string>
+    <string name="btnSaveChanges">Guardar cambios</string>
+    <string name="btnChangePassword">Cambiar contraseña</string>
+    <string name="btnLogout">Cerrar sesión</string>
     <!-- Array de conductores -->
     <string-array name="drivers_array">
         <item>Seleccione un conductor:</item>

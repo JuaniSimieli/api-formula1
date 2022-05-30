@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="TODO put name"
+                android:text="@string/txtNameDefault"
                 android:textStyle="bold" />
 
             <EditText
@@ -41,9 +41,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
-                android:hint="Ingresa tu nombre"
+                android:hint="@string/txtNameProfile"
                 android:inputType="textPersonName"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/txtEmailAdressProfile"
@@ -51,9 +52,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
-                android:hint="Email"
+                android:hint="@string/txtEmailProfile"
                 android:inputType="textEmailAddress"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:autofillHints="" />
 
             <Spinner
                 android:id="@+id/spinnerDriverProfile"
@@ -74,14 +76,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Guardar Cambios" />
+                android:text="@string/btnSaveChanges" />
 
             <Button
                 android:id="@+id/btnChangePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Cambiar contraseña" />
+                android:text="@string/btnChangePassword" />
 
             <Button
                 android:id="@+id/btnLogout"
@@ -89,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:minHeight="48dp"
-                android:text="Cerrar sesión" />
+                android:text="@string/btnLogout" />
         </LinearLayout>
     </ScrollView>
 
