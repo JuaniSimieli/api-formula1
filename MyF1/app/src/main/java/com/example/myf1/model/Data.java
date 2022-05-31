@@ -41,25 +41,9 @@ public class Data {
                     public Driver Driver;
                     public List<Constructors> Constructors;
 
-                    public class Driver {
-                        public String driverId;
-                        public String permanentNumber;
-                        public String code;
-                        public String url;
-                        public String givenName;
-                        public String familyName;
-                        public String dateOfBirth;
-                        public String nationality;
-                    }
 
                 }
 
-                public class Constructors {
-                    public String constructorId;
-                    public String url;
-                    public String name;
-                    public String nationality;
-                }
             }
         }
 
@@ -80,6 +64,33 @@ public class Data {
                 public Session ThirdPractice;
                 public Session Qualifying;
                 public Session Sprint;
+                public List<Result> Results;
+
+                public class Result{
+                    public String number;
+                    public String position;
+                    public String positionText;
+                    public String points;
+                    public Driver Driver;
+                    public Constructors Constructor;
+                    public String grid;
+                    public String laps;
+                    public String status;
+                    public Times Time;
+                    public FastestLap FastestLap;
+
+                    public class FastestLap{
+                        public String rank;
+                        public String lap;
+                        public Times Time;
+                    }
+
+                    public class Times{
+                        public String millis;
+                        public String time;
+                    }
+                }
+
 
                 public class Circuit {
                     public String circuitId;
@@ -100,6 +111,24 @@ public class Data {
                     public String time;
                 }
             }
+        }
+
+        public class Driver {
+            public String driverId;
+            public String permanentNumber;
+            public String code;
+            public String url;
+            public String givenName;
+            public String familyName;
+            public String dateOfBirth;
+            public String nationality;
+        }
+
+        public class Constructors {
+            public String constructorId;
+            public String url;
+            public String name;
+            public String nationality;
         }
     }
 }
