@@ -19,11 +19,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText txtLoginEmail, txtLoginPasswd;
+    EditText txtLoginEmail;
+    TextInputEditText txtLoginPasswd;
     TextView txtLoginForgottenPasswd, txtLoginCreateAccount;
     Button btnLoginIniciarSesion;
     private FirebaseAuth myAuth;
@@ -32,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         txtLoginEmail=(EditText) findViewById(R.id.txtEmailAdressLogin);
-        txtLoginPasswd=(EditText) findViewById(R.id.txtPasswordLogin);
+        txtLoginPasswd=(TextInputEditText) findViewById(R.id.txtPasswordLogin);
         txtLoginForgottenPasswd = (TextView) findViewById(R.id.txtForgottenPasswd);
         txtLoginCreateAccount = (TextView) findViewById(R.id.txtCrearCuenta);
         btnLoginIniciarSesion = (Button) findViewById(R.id.btnLogin);

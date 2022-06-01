@@ -16,6 +16,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/f1_logo" />
+
         <EditText
             android:id="@+id/txtEmailAdressLogin"
             android:layout_width="match_parent"
@@ -27,16 +34,20 @@
             android:inputType="textEmailAddress"
             android:minHeight="48dp" />
 
-        <EditText
-            android:id="@+id/txtPasswordLogin"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/txtPasswordLogin"
-            android:inputType="textPassword"
-            android:minHeight="48dp" />
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtPasswordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:hint="@string/txtPasswordLogin"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/txtForgottenPasswd"
@@ -52,8 +63,8 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_rectangle"
             android:layout_marginTop="25dp"
+            android:background="@drawable/rounded_rectangle"
             android:text="@string/btnLogin" />
 
         <TextView

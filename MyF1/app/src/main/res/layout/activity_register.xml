@@ -37,27 +37,36 @@
             android:minHeight="48dp"
             android:autofillHints="" />
 
-        <EditText
-            android:id="@+id/txtPasswdRegister"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:ems="10"
-            android:hint="@string/txtPasswordLogin"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:autofillHints="" />
+            app:endIconMode="password_toggle">
 
-        <EditText
-            android:id="@+id/txtPasswdRepeatRegister"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:hint="@string/txtPasswordLogin"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:ems="10"
-            android:hint="@string/txtPasswordRepeatRegister"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:autofillHints="" />
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtRepeatPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:hint="@string/txtPasswordRepeatRegister"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
             android:id="@+id/spinnerFavDriverRegister"

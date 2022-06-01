@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -30,7 +31,8 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     Button btnRegisterFB;
-    EditText txtRegisterName, txtRegisterEmail, txtRegisterPasswd, txtRegisterRepeatPasswd;
+    EditText txtRegisterName, txtRegisterEmail;
+    TextInputEditText txtRegisterPasswd, txtRegisterRepeatPasswd;
     TextView txtRegisterCancelation;
     private Spinner spinnerDriver, spinnerTeam;
     private String userID;
@@ -46,8 +48,8 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegisterFB = (Button) findViewById(R.id.btnFinishRegister);
         txtRegisterName = (EditText)findViewById(R.id.txtNameRegister);
         txtRegisterEmail = (EditText)findViewById(R.id.txtEmailAdressRegister);
-        txtRegisterPasswd = (EditText) findViewById(R.id.txtPasswdRegister);
-        txtRegisterRepeatPasswd = (EditText) findViewById(R.id.txtPasswdRepeatRegister);
+        txtRegisterPasswd = (TextInputEditText) findViewById(R.id.txtPasswordRegister);
+        txtRegisterRepeatPasswd = (TextInputEditText) findViewById(R.id.txtRepeatPasswordRegister);
         txtRegisterCancelation = (TextView) findViewById(R.id.txtCancelRegister);
         spinnerDriver = (Spinner) findViewById(R.id.spinnerFavDriverRegister);
         spinnerTeam = (Spinner) findViewById(R.id.spinnerFavTeamRegister);
