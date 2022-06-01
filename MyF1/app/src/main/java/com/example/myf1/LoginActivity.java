@@ -1,8 +1,5 @@
 package com.example.myf1;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,14 +12,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     EditText txtLoginEmail;
@@ -34,29 +31,22 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        txtLoginEmail=(EditText) findViewById(R.id.txtEmailAdressLogin);
-        txtLoginPasswd=(TextInputEditText) findViewById(R.id.txtPasswordLogin);
-        txtLoginForgottenPasswd = (TextView) findViewById(R.id.txtForgottenPasswd);
-        txtLoginCreateAccount = (TextView) findViewById(R.id.txtCrearCuenta);
-        btnLoginIniciarSesion = (Button) findViewById(R.id.btnLogin);
+        txtLoginEmail= findViewById(R.id.txtEmailAdressLogin);
+        txtLoginPasswd= findViewById(R.id.txtPasswordLogin);
+        txtLoginForgottenPasswd = findViewById(R.id.txtForgottenPasswd);
+        txtLoginCreateAccount = findViewById(R.id.txtCrearCuenta);
+        btnLoginIniciarSesion = findViewById(R.id.btnLogin);
 
 
         myAuth = FirebaseAuth.getInstance();
         /*Acción de presionar en Login*/
-        btnLoginIniciarSesion.setOnClickListener(view -> {
-            userLogin();
-        });
+        btnLoginIniciarSesion.setOnClickListener(view -> userLogin());
 
         /*Acción de presionar en crear cuenta*/
-        txtLoginCreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openRegisterActivity();
-            }
-        });
+        txtLoginCreateAccount.setOnClickListener(view -> openRegisterActivity());
 
         /*acción a tomar cuando se decida resetear el correo*/
-        txtLoginForgottenPasswd.setOnClickListener(new View.OnClickListener() {
+        txtLoginForgottenPasswd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 final EditText resetMail = new EditText(view.getContext());
@@ -95,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
     /*Función de Login*/
     public void userLogin(){
         String email = txtLoginEmail.getText().toString();
-        String password = txtLoginPasswd.getText().toString();
+        String password = Objects.requireNonNull(txtLoginPasswd.getText()).toString();
 
         if (TextUtils.isEmpty(email)){
             txtLoginEmail.setError("Ingrese un correo");
@@ -104,15 +94,12 @@ public class LoginActivity extends AppCompatActivity {
             txtLoginPasswd.setError("Ingrese una contraseña");
             txtLoginPasswd.requestFocus();
         }else{
-            myAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        Toast.makeText(LoginActivity.this, "Bienvenido!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent (LoginActivity.this,DashBoardActivity.class));
-                    }else{
-                        Log.w("TAG","Error:",task.getException());
-                    }
+            myAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+                    Toast.makeText(LoginActivity.this, "Bienvenido!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent (LoginActivity.this,DashBoardActivity.class));
+                }else{
+                    Log.w("TAG","Error:",task.getException());
                 }
             });
         }
