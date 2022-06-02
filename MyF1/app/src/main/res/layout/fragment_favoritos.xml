@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4A4C53"
+    tools:context=".FavoritosFragment">
+
+    <ImageView
+        android:id="@+id/imgFavDriver"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgFavDriverPill"
+        android:layout_width="10dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="-10dp"
+        app:layout_constraintStart_toEndOf="@+id/imgFavDriver"
+        app:layout_constraintTop_toTopOf="@+id/imgFavDriver" />
+
+    <TextView
+        android:id="@+id/txtFavDriverName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgFavDriverPill"
+        app:layout_constraintStart_toEndOf="@+id/imgFavDriverPill"
+        app:layout_constraintTop_toTopOf="@+id/imgFavDriverPill" />
+
+    <TextView
+        android:id="@+id/txtFavTeamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgFavTeamPill"
+        app:layout_constraintStart_toEndOf="@+id/imgFavTeamPill"
+        app:layout_constraintTop_toTopOf="@+id/imgFavTeamPill" />
+
+    <TextView
+        android:id="@+id/txtFavDriverPos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@+id/txtFavDriverName"
+        app:layout_constraintTop_toBottomOf="@+id/txtFavDriverName" />
+
+    <TextView
+        android:id="@+id/txtFavTeamPos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@+id/imgFavTeamLogo"
+        app:layout_constraintTop_toBottomOf="@+id/imgFavTeamLogo" />
+
+    <TextView
+        android:id="@+id/txtFavTeamPts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/txtFavTeamPos"
+        app:layout_constraintTop_toBottomOf="@+id/txtFavTeamPos" />
+
+    <TextView
+        android:id="@+id/txtFavTeamWins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/txtFavTeamPts"
+        app:layout_constraintTop_toBottomOf="@+id/txtFavTeamPts" />
+
+    <TextView
+        android:id="@+id/txtFavDriverPts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/txtFavDriverPos"
+        app:layout_constraintTop_toBottomOf="@+id/txtFavDriverPos" />
+
+    <TextView
+        android:id="@+id/txtFavDriverWins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/txtFavDriverPts"
+        app:layout_constraintTop_toBottomOf="@+id/txtFavDriverPts" />
+
+    <ImageView
+        android:id="@+id/imgFavDriverNum"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgFavDriver"
+        app:layout_constraintStart_toStartOf="@+id/txtFavDriverWins" />
+
+    <ImageView
+        android:id="@+id/imgFavDriverHelm"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgFavDriverNum"
+        app:layout_constraintStart_toEndOf="@+id/imgFavDriverNum" />
+
+    <ImageView
+        android:id="@+id/imgFavTeamLogo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="75dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgFavDriver" />
+
+    <ImageView
+        android:id="@+id/imgFavTeamPill"
+        android:layout_width="10dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@+id/imgFavTeamLogo"
+        app:layout_constraintTop_toTopOf="@+id/imgFavTeamLogo" />
+
+    <ImageView
+        android:id="@+id/imgFavTeamCar"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFavTeamWins" />
+
+    <ImageView
+        android:id="@+id/imageGearFav"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settings_gear" />
+</androidx.constraintlayout.widget.ConstraintLayout>

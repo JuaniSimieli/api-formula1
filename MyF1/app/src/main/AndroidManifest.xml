@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/GlobalAppTheme">
         <activity
+            android:name=".ResultadosDetalleActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DashBoardActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

@@ -35,7 +35,7 @@ public class LoadActivity extends AppCompatActivity {
                     if (user == null){
                         startActivity(new Intent(LoadActivity.this, LoginActivity.class));
                     }else{
-                        startActivity(new Intent(LoadActivity.this,DashBoardActivity.class));
+                        startActivity(new Intent(LoadActivity.this,MainActivity.class));
                     }
                     /*Mato la activity de load*/
                     finish();
