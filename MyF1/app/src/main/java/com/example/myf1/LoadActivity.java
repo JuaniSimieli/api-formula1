@@ -24,22 +24,12 @@ public class LoadActivity extends AppCompatActivity {
                     GlobalClass.fetchData();
                     sleep(2000);  //Delay de 2 segundos
                 } catch (Exception e) {
+
                 } finally {
-                    /*Llamo al activity*/
-                    FirebaseUser user = myAuth.getCurrentUser();
-                    if (user == null){
-                        startActivity(new Intent(LoadActivity.this, LoginActivity.class));
-                    }else{
-                        startActivity(new Intent(LoadActivity.this,MainActivity.class));
-                        GlobalClass.fetchData();
-                        myAuth = FirebaseAuth.getInstance();
-                        try {
-                            sleep(2500);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    /*Mato la activity de load*/
+                    //llamo al activity
+                    Intent i = new Intent(LoadActivity.this, MainActivity.class);
+                    startActivity(i);
+                    //mato la activity de load
                     finish();
                 }
             }
