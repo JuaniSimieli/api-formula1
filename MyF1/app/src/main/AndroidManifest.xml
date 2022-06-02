@@ -19,9 +19,6 @@
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".DashBoardActivity"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
