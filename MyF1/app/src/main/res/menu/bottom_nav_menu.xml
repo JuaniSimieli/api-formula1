@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Carreras"
+        android:icon="@drawable/ic_baseline_flag_24"
+        android:id="@+id/carre"/>
+    <item android:title="Resultados"
+        android:icon="@drawable/ic_baseline_format_list_numbered_24"
+        android:id="@+id/resul"/>
+    <item android:title="Favoritos"
+        android:icon="@drawable/ic_baseline_star_24"
+        android:id="@+id/favs"/>
+    <item android:title="Pilotos"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:id="@+id/pilo"/>
+    <item android:title="Equipos"
+        android:icon="@drawable/ic_baseline_construction_24"
+        android:id="@+id/equi"/>
+</menu>
