@@ -14,6 +14,7 @@ public class LoadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
+        myAuth = FirebaseAuth.getInstance();
 
         Thread welcomeThread = new Thread() {
             @Override
@@ -26,9 +27,13 @@ public class LoadActivity extends AppCompatActivity {
                 } catch (Exception e) {
 
                 } finally {
-                    //llamo al activity
-                    Intent i = new Intent(LoadActivity.this, MainActivity.class);
-                    startActivity(i);
+                    FirebaseUser user = myAuth.getCurrentUser();
+                    if (user == null){
+                        Intent i = new Intent(LoadActivity.this, LoginActivity.class);
+                        startActivity(i);
+                    }else{
+                        startActivity(new Intent(LoadActivity.this,MainActivity.class));
+                    }
                     //mato la activity de load
                     finish();
                 }
