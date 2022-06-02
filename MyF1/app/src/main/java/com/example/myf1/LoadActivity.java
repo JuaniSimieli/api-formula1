@@ -7,7 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class LoadActivity extends AppCompatActivity {
+    private FirebaseAuth myAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +25,18 @@ public class LoadActivity extends AppCompatActivity {
                     super.run();
                     /*Hago las calls a la api*/
                     GlobalClass.fetchData();
+                    myAuth = FirebaseAuth.getInstance();
                     sleep(2500);  /*Delay de 2,5 segundos*/
                 } catch (Exception e) {
 
                 } finally {
                     /*Llamo al activity*/
-                    Intent i = new Intent(LoadActivity.this,
-                            MainActivity.class);
-                    startActivity(i);
+                    FirebaseUser user = myAuth.getCurrentUser();
+                    if (user == null){
+                        startActivity(new Intent(LoadActivity.this, LoginActivity.class));
+                    }else{
+                        startActivity(new Intent(LoadActivity.this,DashBoardActivity.class));
+                    }
                     /*Mato la activity de load*/
                     finish();
                 }
