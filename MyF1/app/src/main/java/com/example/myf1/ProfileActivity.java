@@ -274,8 +274,10 @@ public class ProfileActivity extends AppCompatActivity {
                 edited.put("Email", email);
             } else if (!TextUtils.isEmpty(driver)) {
                 edited.put("Conductor Favorito", driver);
+                GlobalClass.setPilotoFav(driver);
             } else if (!TextUtils.isEmpty(team)) {
                 edited.put("Escudería Favorita", team);
+                GlobalClass.setEquipoFav(team);
             }
             documentReference.update(edited).addOnSuccessListener(unused -> {
                 Toast.makeText(ProfileActivity.this, "Perfil cambiado!", Toast.LENGTH_SHORT).show();
