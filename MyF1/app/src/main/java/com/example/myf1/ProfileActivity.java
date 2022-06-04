@@ -1,6 +1,6 @@
 package com.example.myf1;
 
-import androidx.annotation.NonNull;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,8 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -80,13 +78,11 @@ public class ProfileActivity extends AppCompatActivity {
         StorageReference profileReference = storageReference.child("users/" + userID + "/profile.jpg");
         profileReference.getDownloadUrl().addOnSuccessListener(uri -> Picasso.get().load(uri).into(profileImage));
 //TODO: RESOLVER EL ERROR DE LA IMAGEN FIREBASE
-        profileImage.setOnClickListener(view -> {
-            ImagePicker.with(ProfileActivity.this)
-                    .crop()                    //Crop image(Optional), Check Customization for more option
-                    /*.compress(1024)			//Final image size will be less than 1 MB(Optional)
-                    .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)*/
-                    .start();
-        });
+        profileImage.setOnClickListener(view -> ImagePicker.with(ProfileActivity.this)
+                .crop()                    //Crop image(Optional), Check Customization for more option
+                /*.compress(1024)			//Final image size will be less than 1 MB(Optional)
+                .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)*/
+                .start());
 
         logoutButton.setOnClickListener(this::logout);
 
@@ -240,12 +236,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        changeProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateUser();
-            }
-        });
+        changeProfile.setOnClickListener(view -> updateUser());
     }
 
     //Acá termina el onCreate
@@ -290,15 +281,12 @@ public class ProfileActivity extends AppCompatActivity {
             } else if (!TextUtils.isEmpty(team)) {
                 edited.put("Escudería Favorita", team);
             }
-            documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    Toast.makeText(ProfileActivity.this, "Perfil cambiado!", Toast.LENGTH_SHORT).show();
-                    txtProfileName.setText("");
-                    txtProfileEmail.setText("");
-                    spinnerDriver.setSelection(0);
-                    spinnerTeam.setSelection(0);
-                }
+            documentReference.update(edited).addOnSuccessListener(unused -> {
+                Toast.makeText(ProfileActivity.this, "Perfil cambiado!", Toast.LENGTH_SHORT).show();
+                txtProfileName.setText("");
+                txtProfileEmail.setText("");
+                spinnerDriver.setSelection(0);
+                spinnerTeam.setSelection(0);
             });
         }
     }
