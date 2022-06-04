@@ -2,7 +2,6 @@ package com.example.myf1;
 
 import com.example.myf1.model.Data;
 import com.example.myf1.model.JSONPlaceHolderAPI;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -15,6 +14,10 @@ public class GlobalClass {
     public static Data carreras = null;
     public static String pilotoFav = null;
     public static String equipoFav = null;
+
+    /*Firebase importations*/
+
+
 
     public static void setEquipoFav(String equipoFav) {
         GlobalClass.equipoFav = equipoFav;
@@ -134,16 +137,9 @@ public class GlobalClass {
         });
     }
 
-    public static void setFireBaseFavs(){
-        //TODO: implementar get driverId desde Firebase
-        GlobalClass.setPilotoFav("leclerc");
-        GlobalClass.setEquipoFav("ferrari");
-    }
-
     public static void fetchData(){
         GlobalClass.setPilotos();
         GlobalClass.setEquipos();
         GlobalClass.setCarreras();
-        GlobalClass.setFireBaseFavs();
     }
 }
