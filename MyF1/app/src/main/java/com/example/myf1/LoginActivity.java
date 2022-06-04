@@ -1,22 +1,15 @@
 package com.example.myf1;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import java.util.Objects;
@@ -46,33 +39,17 @@ public class LoginActivity extends AppCompatActivity {
         txtLoginCreateAccount.setOnClickListener(view -> openRegisterActivity());
 
         /*acción a tomar cuando se decida resetear el correo*/
-        txtLoginForgottenPasswd.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                final EditText resetMail = new EditText(view.getContext());
-                final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
-                passwordResetDialog.setTitle("¿Desea reestablecer la contraseña?");
-                passwordResetDialog.setMessage("Ingrese un correo para cambiar la contraseña");
-                passwordResetDialog.setView(resetMail);
-                passwordResetDialog.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        //extraer el email y enviar el link para reestablecer
-                        String mail = resetMail.getText().toString();
-                        myAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(LoginActivity.this, "Se envió exitosamente el link!", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(LoginActivity.this, "Error, no se pudo enviar el link." + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                });
-            }
+        txtLoginForgottenPasswd.setOnClickListener(view -> {
+            final EditText resetMail = new EditText(view.getContext());
+            final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
+            passwordResetDialog.setTitle("¿Desea reestablecer la contraseña?");
+            passwordResetDialog.setMessage("Ingrese un correo para cambiar la contraseña");
+            passwordResetDialog.setView(resetMail);
+            passwordResetDialog.setPositiveButton("Sí", (dialogInterface, i) -> {
+                //extraer el email y enviar el link para reestablecer
+                String mail = resetMail.getText().toString();
+                myAuth.sendPasswordResetEmail(mail).addOnSuccessListener(unused -> Toast.makeText(LoginActivity.this, "Se envió exitosamente el link!", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(LoginActivity.this, "Error, no se pudo enviar el link." + e.getMessage(), Toast.LENGTH_SHORT).show());
+            });
         });
     }
 
