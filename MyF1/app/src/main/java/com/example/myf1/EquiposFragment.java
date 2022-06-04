@@ -86,7 +86,7 @@ public class EquiposFragment extends Fragment {
             int imagenSquare = getResources().getIdentifier(imagenPillSquare, null, getActivity().getPackageName());
 
             mLista.add(new ModeloListaDriver(equipo.Constructor.name,
-                    equipo.points, equipo.position, imagenPill, imagenSquare));
+                    equipo.points, equipo.position, imagenPill, imagenSquare, null));
         }
 
         mAdapter = new ListAdapterDriver(getActivity().getApplicationContext(), R.layout.item_row_driver, mLista);

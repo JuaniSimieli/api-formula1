@@ -1,4 +1,5 @@
 package com.example.myf1;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -6,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.myf1.model.Data;
@@ -18,7 +20,7 @@ import java.util.List;
  * Use the {@link PilotosFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PilotosFragment extends Fragment {
+public class PilotosFragment extends Fragment implements AdapterView.OnItemClickListener  {
 
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,10 +72,32 @@ public class PilotosFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pilotos, container, false);
 
         mListView = view.findViewById(R.id.listViewPilotos);
+        mListView.setOnItemClickListener(this);
         setPilotos();
 
         return view;
     }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Intent intent = new Intent(getActivity(),PilotoDetalleActivity.class);
+        ModeloListaDriver piloto = mLista.get(i);
+        intent.putExtra("nombre", piloto.pilotoDetalle.Driver.givenName + " " + piloto.pilotoDetalle.Driver.familyName);
+        intent.putExtra("wins", piloto.pilotoDetalle.wins);
+        intent.putExtra("points", piloto.pilotoDetalle.points);
+        intent.putExtra("number", piloto.pilotoDetalle.Driver.permanentNumber);
+        intent.putExtra("teamName", piloto.pilotoDetalle.Constructors.get(0).name);
+        intent.putExtra("driverId", piloto.pilotoDetalle.Driver.driverId);
+        intent.putExtra("constrId", piloto.pilotoDetalle.Constructors.get(0).constructorId);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
 
     private void setPilotos() {
         Data datos = GlobalClass.getPilotos();
@@ -87,7 +111,7 @@ public class PilotosFragment extends Fragment {
             int imagenNac = getResources().getIdentifier(imagenNacString, null, getActivity().getPackageName());
 
             mLista.add(new ModeloListaDriver(piloto.Driver.givenName + " " + piloto.Driver.familyName,
-                    piloto.points, piloto.position, imagenPill, imagenNac));
+                    piloto.points, piloto.position, imagenPill, imagenNac, piloto));
         }
 
         mAdapter = new ListAdapterDriver(getActivity().getApplicationContext(), R.layout.item_row_driver, mLista);
