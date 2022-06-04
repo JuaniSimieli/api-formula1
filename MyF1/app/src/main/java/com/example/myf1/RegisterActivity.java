@@ -203,6 +203,8 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    //Termina el onCreate
+
     /*Función intent para cancelar registro*/
     public void openLoginActivity(){
         Intent goToLogin = new Intent(this, LoginActivity.class);
