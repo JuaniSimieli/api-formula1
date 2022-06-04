@@ -8,7 +8,7 @@
 - [x] Tabla de campeonato de pilotos y equipos de la temporada 2022
 - [x] Capacidad para agregar al calendario las carreras futuras
 - [x] Resultados de las carreras finalizadas de la temporada 2022
-- [ ] Detalle de cada piloto de la temporada 2022
+- [x] Detalle de cada piloto de la temporada 2022
 - [ ] Detalle de cada equipo de la temporada 2022
 - [ ] Widgets para la pantalla de inicio con detalles de piloto y equipo favorito
 

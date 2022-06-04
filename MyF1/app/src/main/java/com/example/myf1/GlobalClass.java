@@ -13,8 +13,8 @@ public class GlobalClass {
     public static Data pilotos = null;
     public static Data equipos = null;
     public static Data carreras = null;
-    public static String pilotoFav = "leclerc";
-    public static String equipoFav = "ferrari";
+    public static String pilotoFav = null;
+    public static String equipoFav = null;
 
     public static void setEquipoFav(String equipoFav) {
         GlobalClass.equipoFav = equipoFav;
@@ -134,9 +134,16 @@ public class GlobalClass {
         });
     }
 
+    public static void setFireBaseFavs(){
+        //TODO: implementar get driverId desde Firebase
+        GlobalClass.setPilotoFav("leclerc");
+        GlobalClass.setEquipoFav("ferrari");
+    }
+
     public static void fetchData(){
         GlobalClass.setPilotos();
         GlobalClass.setEquipos();
         GlobalClass.setCarreras();
+        GlobalClass.setFireBaseFavs();
     }
 }
