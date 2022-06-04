@@ -1,14 +1,10 @@
 package com.example.myf1;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,25 +12,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
     Button btnRegisterFB;
     EditText txtRegisterName, txtRegisterEmail;
     TextInputEditText txtRegisterPasswd, txtRegisterRepeatPasswd;
     TextView txtRegisterCancelation;
-    private Spinner spinnerDriver, spinnerTeam;
     private String userID;
     private FirebaseAuth myAuth;
     private FirebaseFirestore db;
@@ -51,8 +42,8 @@ public class RegisterActivity extends AppCompatActivity {
         txtRegisterPasswd = (TextInputEditText) findViewById(R.id.txtPasswordRegister);
         txtRegisterRepeatPasswd = (TextInputEditText) findViewById(R.id.txtRepeatPasswordRegister);
         txtRegisterCancelation = (TextView) findViewById(R.id.txtCancelRegister);
-        spinnerDriver = (Spinner) findViewById(R.id.spinnerFavDriverRegister);
-        spinnerTeam = (Spinner) findViewById(R.id.spinnerFavTeamRegister);
+        Spinner spinnerDriver = (Spinner) findViewById(R.id.spinnerFavDriverRegister);
+        Spinner spinnerTeam = (Spinner) findViewById(R.id.spinnerFavTeamRegister);
 
         myAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -188,19 +179,9 @@ public class RegisterActivity extends AppCompatActivity {
         });
         /*TODO: hacer una función que valide el driver, así no es tanto código en el main*/
 
-        btnRegisterFB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createUser();
-            }
-        });
+        btnRegisterFB.setOnClickListener(view -> createUser());
         /*Cancelar registro*/
-        txtRegisterCancelation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openLoginActivity();
-            }
-        });
+        txtRegisterCancelation.setOnClickListener(view -> openLoginActivity());
     }
 
     //Termina el onCreate
@@ -215,8 +196,8 @@ public class RegisterActivity extends AppCompatActivity {
     public void createUser(){
         String name = txtRegisterName.getText().toString();
         String email = txtRegisterEmail.getText().toString();
-        String password = txtRegisterPasswd.getText().toString();
-        String repeat_password = txtRegisterRepeatPasswd.getText().toString();
+        String password = Objects.requireNonNull(txtRegisterPasswd.getText()).toString();
+        String repeat_password = Objects.requireNonNull(txtRegisterRepeatPasswd.getText()).toString();
         String driver = favDriver;
         String team = favTeam;
 
@@ -239,31 +220,23 @@ public class RegisterActivity extends AppCompatActivity {
         }else if (!password.equals(repeat_password)){
             Toast.makeText(this, "Error, las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
         }else{
-            myAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()){
-                        userID = myAuth.getCurrentUser().getUid();
-                        DocumentReference documentReference = db.collection("users").document(userID);
+            myAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    userID = Objects.requireNonNull(myAuth.getCurrentUser()).getUid();
+                    DocumentReference documentReference = db.collection("users").document(userID);
 
-                        Map<String, Object> user = new HashMap<>();
-                        user.put("Nombre", name);
-                        user.put("Email",email);
-                        user.put("Contraseña",password);
-                        user.put("Conductor Favorito", driver);
-                        user.put("Escudería Favorita", team);
+                    Map<String, Object> user = new HashMap<>();
+                    user.put("Nombre", name);
+                    user.put("Email",email);
+                    user.put("Contraseña",password);
+                    user.put("Conductor Favorito", driver);
+                    user.put("Escudería Favorita", team);
 
-                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Log.d("TAG", "OnSucces: Datos registrados"+userID);
-                            }
-                        });
-                        Toast.makeText(RegisterActivity.this, "Usuario registrado!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                    }else{
-                        Toast.makeText(RegisterActivity.this, "Usuario no registrado"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+                    documentReference.set(user).addOnSuccessListener(unused -> Log.d("TAG", "OnSucces: Datos registrados"+userID));
+                    Toast.makeText(RegisterActivity.this, "Usuario registrado!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                }else{
+                    Toast.makeText(RegisterActivity.this, "Usuario no registrado"+ Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
