@@ -270,12 +270,12 @@ public class ProfileActivity extends AppCompatActivity {
             Map<String, Object> edited = new HashMap<>();
             if (!TextUtils.isEmpty(name)) {
                 edited.put("Nombre", name);
-            } else if (!TextUtils.isEmpty(email)) {
+            } if (!TextUtils.isEmpty(email)) {
                 edited.put("Email", email);
-            } else if (!TextUtils.isEmpty(driver)) {
+            } if (!TextUtils.isEmpty(driver)) {
                 edited.put("Conductor Favorito", driver);
                 GlobalClass.setPilotoFav(driver);
-            } else if (!TextUtils.isEmpty(team)) {
+            } if (!TextUtils.isEmpty(team)) {
                 edited.put("Escudería Favorita", team);
                 GlobalClass.setEquipoFav(team);
             }

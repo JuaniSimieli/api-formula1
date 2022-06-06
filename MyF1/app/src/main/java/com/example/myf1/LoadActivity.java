@@ -40,7 +40,7 @@ public class LoadActivity extends AppCompatActivity {
                     super.run();
                     //hago las calls a la api
                     GlobalClass.fetchData();
-                    sleep(8000);  //Delay de 5 segundos
+                    sleep(10000);  //Delay de 5 segundos
                 } catch (Exception e) {
 
                 } finally {

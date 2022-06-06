@@ -110,7 +110,6 @@ public class FavoritosFragment extends Fragment {
             }
         });
 
-        //TODO: obtener ids de favoritos del perfil
         driverId = GlobalClass.getPilotoFav();
         constructorId = GlobalClass.getEquipoFav();
 
