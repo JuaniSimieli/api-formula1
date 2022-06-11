@@ -12,8 +12,8 @@ public class GlobalClass {
     public static Data pilotos = null;
     public static Data equipos = null;
     public static Data carreras = null;
-    public static String pilotoFav = "leclerc";
-    public static String equipoFav = "ferrari";
+    public static String pilotoFav = null;
+    public static String equipoFav = null;
 
 
     public static void setEquipoFav(String equipoFav) {
