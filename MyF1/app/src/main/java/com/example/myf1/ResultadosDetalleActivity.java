@@ -23,6 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ResultadosDetalleActivity extends AppCompatActivity {
 
     private ListView mListView;
+    private TextView txtNombreCarrera;
     private List<ModeloListaResult> mLista = new ArrayList<>();
     ListAdapterResult mAdapter;
 
@@ -32,6 +33,7 @@ public class ResultadosDetalleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resultados_detalle);
 
         mListView = findViewById(R.id.listViewResultadosDetalle);
+        txtNombreCarrera = findViewById(R.id.textResultadoDetalleCarrera);
 
         /*Recupero el round desde el intent*/
         Intent intent = getIntent();
@@ -60,6 +62,9 @@ public class ResultadosDetalleActivity extends AppCompatActivity {
                 /*Aca trajo los datos satisfactoriamente*/
                 Data datos = response.body();
                 List<Data.MRData.RaceTable.Race.Result> listResults = datos.MRData.RaceTable.Races.get(0).Results;
+
+                String nombreCarrera = datos.MRData.RaceTable.Races.get(0).season + " " + datos.MRData.RaceTable.Races.get(0).raceName;
+                txtNombreCarrera.setText(nombreCarrera);
 
                 for(Data.MRData.RaceTable.Race.Result resultado: listResults){
                     /*Asigno la imagen de la nacionalidad*/
@@ -97,6 +102,7 @@ public class ResultadosDetalleActivity extends AppCompatActivity {
                             tiempo,
                             resultado.points)
                     );
+
                 }
 
                 mAdapter = new ListAdapterResult(ResultadosDetalleActivity.this, R.layout.item_row_driver, mLista);

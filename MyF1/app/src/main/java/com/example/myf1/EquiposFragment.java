@@ -1,5 +1,6 @@
 package com.example.myf1;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.myf1.model.Data;
@@ -19,7 +21,7 @@ import java.util.List;
  * Use the {@link EquiposFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EquiposFragment extends Fragment {
+public class EquiposFragment extends Fragment implements AdapterView.OnItemClickListener {
 
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,9 +71,28 @@ public class EquiposFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_equipos, container, false);
 
         mListView = view.findViewById(R.id.listViewEquipos);
+        mListView.setOnItemClickListener(this);
         setEquipos();
 
         return view;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Intent intent = new Intent(getActivity(),EquipoDetalleActivity.class);
+        ModeloListaDriver equipo = mLista.get(i);
+        intent.putExtra("position", equipo.equipoDetalle.position);
+        intent.putExtra("wins", equipo.equipoDetalle.wins);
+        intent.putExtra("points", equipo.equipoDetalle.points);
+        intent.putExtra("name", equipo.equipoDetalle.Constructor.name);
+        intent.putExtra("nationality", equipo.equipoDetalle.Constructor.nationality.toLowerCase());
+        intent.putExtra("constrId", equipo.equipoDetalle.Constructor.constructorId);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     private void setEquipos() {
@@ -86,7 +107,7 @@ public class EquiposFragment extends Fragment {
             int imagenSquare = getResources().getIdentifier(imagenPillSquare, null, getActivity().getPackageName());
 
             mLista.add(new ModeloListaDriver(equipo.Constructor.name,
-                    equipo.points, equipo.position, imagenPill, imagenSquare, null));
+                    equipo.points, equipo.position, imagenPill, imagenSquare, null, equipo));
         }
 
         mAdapter = new ListAdapterDriver(getActivity().getApplicationContext(), R.layout.item_row_driver, mLista);
