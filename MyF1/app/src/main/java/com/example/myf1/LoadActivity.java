@@ -15,6 +15,9 @@ import java.util.Objects;
 
 public class LoadActivity extends AppCompatActivity {
     private FirebaseAuth myAuth;
+    private FirebaseFirestore db;
+    private String userID;
+    private FirebaseUser user;
     private ProgressBar barra;
 
     @Override
@@ -22,9 +25,6 @@ public class LoadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
         myAuth = FirebaseAuth.getInstance();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseUser user = myAuth.getCurrentUser();
-        String userID = Objects.requireNonNull(user).getUid();
         db = FirebaseFirestore.getInstance();
         if (Objects.nonNull(myAuth)){
             user = myAuth.getCurrentUser();
