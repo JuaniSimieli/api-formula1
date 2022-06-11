@@ -111,7 +111,7 @@ public class PilotosFragment extends Fragment implements AdapterView.OnItemClick
             int imagenNac = getResources().getIdentifier(imagenNacString, null, getActivity().getPackageName());
 
             mLista.add(new ModeloListaDriver(piloto.Driver.givenName + " " + piloto.Driver.familyName,
-                    piloto.points, piloto.position, imagenPill, imagenNac, piloto));
+                    piloto.points, piloto.position, imagenPill, imagenNac, piloto, null));
         }
 
         mAdapter = new ListAdapterDriver(getActivity().getApplicationContext(), R.layout.item_row_driver, mLista);
