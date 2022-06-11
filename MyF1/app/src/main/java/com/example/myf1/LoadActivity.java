@@ -1,10 +1,10 @@
 package com.example.myf1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,9 +15,6 @@ import java.util.Objects;
 
 public class LoadActivity extends AppCompatActivity {
     private FirebaseAuth myAuth;
-    private FirebaseFirestore db;
-    private String userID;
-    private FirebaseUser user;
     private ProgressBar barra;
 
     @Override
@@ -25,9 +22,9 @@ public class LoadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
         myAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
-        user = myAuth.getCurrentUser();
-        userID = Objects.requireNonNull(myAuth.getCurrentUser()).getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseUser user = myAuth.getCurrentUser();
+        String userID = Objects.requireNonNull(user).getUid();
         barra = findViewById(R.id.progressBar);
         barra.setMax(3);
 
@@ -36,9 +33,7 @@ public class LoadActivity extends AppCompatActivity {
             assert value != null;
             GlobalClass.setPilotoFav(value.getString("Conductor Favorito"));
             GlobalClass.setEquipoFav(value.getString("Escudería Favorita"));
-
         });
-
         Thread welcomeThread = new Thread() {
             @Override
             public void run() {
@@ -53,10 +48,11 @@ public class LoadActivity extends AppCompatActivity {
                     sleep(2000);
                     barra.setProgress(3,true);
                 } catch (Exception e) {
-
+                    Toast.makeText(LoadActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 } finally {
                     FirebaseUser user = myAuth.getCurrentUser();
                     if (user == null){
+
                         Intent i = new Intent(LoadActivity.this, LoginActivity.class);
                         startActivity(i);
                     }else{

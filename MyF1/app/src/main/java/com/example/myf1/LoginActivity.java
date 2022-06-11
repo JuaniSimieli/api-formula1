@@ -1,15 +1,22 @@
 package com.example.myf1;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import java.util.Objects;
@@ -50,6 +57,10 @@ public class LoginActivity extends AppCompatActivity {
                 String mail = resetMail.getText().toString();
                 myAuth.sendPasswordResetEmail(mail).addOnSuccessListener(unused -> Toast.makeText(LoginActivity.this, "Se envió exitosamente el link!", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(LoginActivity.this, "Error, no se pudo enviar el link." + e.getMessage(), Toast.LENGTH_SHORT).show());
             });
+            passwordResetDialog.setNegativeButton("No", (dialogInterface, i) -> {
+                //do something
+            });
+            passwordResetDialog.create().show();
         });
     }
 
