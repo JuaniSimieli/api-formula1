@@ -26,18 +26,26 @@ public class LoadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_load);
         myAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        user = myAuth.getCurrentUser();
-        userID = Objects.requireNonNull(myAuth.getCurrentUser()).getUid();
+        if (Objects.nonNull(myAuth)){
+            user = myAuth.getCurrentUser();
+            userID = myAuth.getUid();
+        }
         barra = findViewById(R.id.progressBar);
         barra.setMax(3);
 
-        DocumentReference documentReference = db.collection("users").document(userID);
-        documentReference.addSnapshotListener(this, (value, error) -> {
-            assert value != null;
-            GlobalClass.setPilotoFav(value.getString("Conductor Favorito"));
-            GlobalClass.setEquipoFav(value.getString("Escudería Favorita"));
 
-        });
+        if (Objects.nonNull(userID)){
+            DocumentReference documentReference = db.collection("users").document(userID);
+            documentReference.addSnapshotListener(this, (value, error) -> {
+                assert value != null;
+                    GlobalClass.setPilotoFav(value.getString("Conductor Favorito"));
+                    GlobalClass.setEquipoFav(value.getString("Escudería Favorita"));
+            });
+
+        }
+
+
+
 
         Thread welcomeThread = new Thread() {
             @Override

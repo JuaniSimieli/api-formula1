@@ -15,9 +15,6 @@ public class GlobalClass {
     public static String pilotoFav = "leclerc";
     public static String equipoFav = "ferrari";
 
-    /*Firebase importations*/
-
-
 
     public static void setEquipoFav(String equipoFav) {
         GlobalClass.equipoFav = equipoFav;
