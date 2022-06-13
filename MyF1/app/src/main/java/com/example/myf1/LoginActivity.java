@@ -87,10 +87,10 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Bienvenido!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent (LoginActivity.this,MainActivity.class));
                 }else{
+                    Toast.makeText(this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
                     Log.w("TAG","Error:",task.getException());
                 }
             });
         }
-        finish();
     }
 }

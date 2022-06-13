@@ -17,17 +17,43 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 
 import com.example.myf1.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+    private FirebaseAuth myAuth;
+    private FirebaseFirestore db;
+    private String userID;
+    private FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new FavoritosFragment());
+        replaceFragment(new CarrerasFragment());
+        //FIREBASE
+        myAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        if (Objects.nonNull(myAuth)){
+            user = myAuth.getCurrentUser();
+            userID = myAuth.getUid();
+        }
+        if (Objects.nonNull(userID)){
+            DocumentReference documentReference = db.collection("users").document(userID);
+            documentReference.addSnapshotListener(this, (value, error) -> {
+                assert value != null;
+                GlobalClass.setPilotoFav(value.getString("Conductor Favorito"));
+                GlobalClass.setEquipoFav(value.getString("Escudería Favorita"));
+            });
 
-        binding.bottomNavigationView.setSelectedItemId(R.id.favs);
+        }
+        //TERMINA FIREBASE
+        binding.bottomNavigationView.setSelectedItemId(R.id.carre);
 
         binding.bottomNavigationView.setOnItemSelectedListener(item ->  {
 

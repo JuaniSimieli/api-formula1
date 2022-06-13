@@ -190,7 +190,6 @@ public class RegisterActivity extends AppCompatActivity {
     public void openLoginActivity(){
         Intent goToLogin = new Intent(this, LoginActivity.class);
         startActivity(goToLogin);
-        finish();
     }
 
     public void createUser(){
