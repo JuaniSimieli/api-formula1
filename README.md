@@ -10,7 +10,7 @@
 - [x] Resultados de las carreras finalizadas de la temporada 2022
 - [x] Detalle de cada piloto de la temporada 2022
 - [x] Detalle de cada equipo de la temporada 2022
-- [ ] Widgets para la pantalla de inicio con detalles de piloto y equipo favorito
+- [x] Widgets para la pantalla de inicio con detalles de piloto y equipo favorito
 
 <sub>Datos obtenidos de [Ergast](http://ergast.com/mrd)</sub>
 <sub>Trabajo Final para Aplicaciones Moviles</sub>
